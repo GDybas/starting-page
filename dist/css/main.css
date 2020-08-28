@@ -21,7 +21,7 @@ img {
   width: 100%; }
 
 .bg-image {
-  background: url("../img/background-images/sunny.jpg") no-repeat center right/cover;
+  background: url("../img/background-images/snowy.jpg") no-repeat center right/cover;
   filter: blur(4px);
   -webkit-filter: blur(4px);
   height: 100vh;
@@ -49,7 +49,7 @@ img {
         color: rgba(51, 51, 51, 0.8); }
   .main-section .container {
     margin: 2rem;
-    background: rgba(0, 0, 0, 0.55);
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.504639) 25%, rgba(0, 0, 0, 0.647496) 50%, rgba(0, 0, 0, 0.748337) 75%);
     border-radius: 10px;
     font-size: 2.5rem;
     color: #fff;
