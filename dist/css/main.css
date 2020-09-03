@@ -1,3 +1,7 @@
+@media screen and (min-width: 1125px) {
+  .btn {
+    background: #000; } }
+
 * {
   margin: 0;
   padding: 0;
@@ -26,12 +30,14 @@ img {
   font-size: 1rem;
   width: 150px;
   padding: 0.7rem 0.7rem;
-  background: #ddc702;
+  background: #f6d100;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   color: #000;
   font-weight: bold; }
+  .btn:hover {
+    background: #ddc702; }
   .btn:focus {
     outline: none;
     box-shadow: none; }
@@ -57,12 +63,12 @@ img {
     top: 15px;
     right: 15px; }
     .main-section .settings-box__icon {
-      color: #333;
+      color: rgba(244, 244, 244, 0.8);
       transition: 0.2s;
       cursor: pointer;
       font-size: 1.5rem; }
       .main-section .settings-box__icon:hover {
-        color: rgba(51, 51, 51, 0.8); }
+        color: #f4f4f4; }
   .main-section .container {
     margin: 2rem;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.504639) 25%, rgba(0, 0, 0, 0.647496) 50%, rgba(0, 0, 0, 0.748337) 75%);
@@ -94,16 +100,18 @@ img {
           cursor: pointer; }
       .main-section .container__weather .weather-info {
         border-radius: 10px;
-        border: 3px solid #fff;
+        border: 1px solid #d4d4d4;
         padding: 1.5rem 2.5rem;
         font-size: 1.5rem;
         line-height: 1.9; }
     .main-section .container__date-time-msg {
-      position: relative; }
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 2rem; }
       .main-section .container__date-time-msg .time-date {
-        position: absolute;
-        top: 50px;
-        left: 50px;
         line-height: 1; }
         .main-section .container__date-time-msg .time-date .clock {
           font-size: 4rem;
@@ -111,12 +119,10 @@ img {
         .main-section .container__date-time-msg .time-date .date {
           font-size: 2rem; }
       .main-section .container__date-time-msg .quote__box {
-        position: absolute;
-        bottom: 30px;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-style: italic;
         text-align: center;
-        padding: 5rem; }
+        padding: 0 1rem; }
       .main-section .container__date-time-msg .quote__author {
         font-size: 1.2rem;
         float: right;
