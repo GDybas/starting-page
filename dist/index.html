@@ -37,26 +37,21 @@
           <h6 class="task-title">Tasks List</h6>
           <form id="task-form">
             <div class="input-field">
-              <input class="todo-input" type="text" name="task" id="task">
-              <label class="todo-label" for="task">New Task</label>
+              <input class="todo-input" type="text" name="task" id="task" placeholder="Insert New Task...">
+              <input type="submit" value="Add Task" class="btn">
             </div>
-            <input type="submit" value="Add Task" class="btn">
           </form>
         </div>
         <div class="display-field">
           <h6 class="task-title">Tasks</h6>
-          <div class="input-field">
-            <input class="todo-input" type="text" name="filter" id="filter">
-            <label class="todo-label" for="filter">Filter Tasks</label>
-          </div>
           <ul class="tasks-list"></ul>
           <a href="#" class="clear-tasks btn">Clear Tasks</a>
         </div>
       </div>
 
       <div class="container container__weather">
-        <div class="city">Gorlice</div>
         <div class="weather-box">
+          <div class="city">Gorlice</div>
           <img
             class="weather-img"
             src="./img/weather-icons/sunny-icon.png"
@@ -72,7 +67,7 @@
           <p class="pressure">Pressure:  1013 hPa</p>
         </div>
       </div>
-      <div class="container container__week-temp">
+      
         
       </div>
     </section>

@@ -29,13 +29,22 @@ img {
   width: 100%;
 }
 
+.bg-image {
+  background: $sunny; //zmiana tła zależnie od pogody
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  height: 100vh;
+  // z-index: -1;
+  display: block;
+}
+
 //Class for buttons
 .btn {
   display: inline-block;
   text-align: center;
   font-size: 1rem;
   width: 150px;
-  padding: 0.7rem 0.7rem;
+  padding: 0.5rem 0.5rem;
 
   background: rgb(246, 209, 0);
   border: none;
@@ -43,9 +52,12 @@ img {
   cursor: pointer;
   color: #000;
   font-weight: bold;
+  transition: 0.2s;
 
   &:hover {
-    background: rgb(221, 199, 2);
+    background: rgb(255, 187, 0);
+    // background: #000;
+    // color: #fff;
   }
 
   &:focus {
@@ -54,14 +66,35 @@ img {
   }
 }
 
+//Classes for created tasks' elements
+.tasks-list {
+  &__item {
+    background: rgb(246, 209, 0);
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding: 0.4rem 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #000;
+  }
 
-.bg-image {
-  background: $snowy; //zmiana tła zależnie od pogody
-  filter: blur(4px);
-  -webkit-filter: blur(4px);
-  height: 100vh;
-  // z-index: -1;
-  display: block;
+  .delete-item {
+    display: flex;
+    align-items: center;
+    // background: #333;
+    border-radius: 5px;
+    // padding: 0 0.6rem;
+    color: #000;
+    transition: 0.2s;
+    font-size: 1rem;
+
+    &:hover {
+      cursor: pointer;
+      color: red;
+    }
+  }
 }
 
 .main-section {
@@ -119,11 +152,8 @@ img {
       }
 
       .city {
-        position: absolute;
-        top: 30px;
-        left: 30px;
         font-size: 2rem;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0;
         border-radius: 10px;
 
         &:hover {
@@ -152,7 +182,6 @@ img {
       justify-content: space-between;
       align-items: flex-start;
       padding: 2rem;
-
 
       .time-date {
         // position: absolute;
@@ -195,19 +224,21 @@ img {
       border: none;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
+      justify-content: flex-start;
       align-content: center;
+      grid-row: span 2;
 
       .input-field,
       .display-field {
         width: 100%;
+        margin-bottom: 0.5rem;
+
+        .tasks-list {
+          overflow-y: auto;
+        }
       }
 
       .todo {
-        &-label {
-          font-size: 1.3rem;
-        }
-
         &-input {
           width: 70%;
           padding: 0.7rem;

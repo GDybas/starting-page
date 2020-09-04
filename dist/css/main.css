@@ -24,30 +24,53 @@ h4 {
 img {
   width: 100%; }
 
+.bg-image {
+  background: url("../img/background-images/sunny2.jpg") no-repeat center right/cover;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  height: 100vh;
+  display: block; }
+
 .btn {
   display: inline-block;
   text-align: center;
   font-size: 1rem;
   width: 150px;
-  padding: 0.7rem 0.7rem;
+  padding: 0.5rem 0.5rem;
   background: #f6d100;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   color: #000;
-  font-weight: bold; }
+  font-weight: bold;
+  transition: 0.2s; }
   .btn:hover {
-    background: #ddc702; }
+    background: #ffbb00; }
   .btn:focus {
     outline: none;
     box-shadow: none; }
 
-.bg-image {
-  background: url("../img/background-images/snowy.jpg") no-repeat center right/cover;
-  filter: blur(4px);
-  -webkit-filter: blur(4px);
-  height: 100vh;
-  display: block; }
+.tasks-list__item {
+  background: #f6d100;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #000; }
+
+.tasks-list .delete-item {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  color: #000;
+  transition: 0.2s;
+  font-size: 1rem; }
+  .tasks-list .delete-item:hover {
+    cursor: pointer;
+    color: red; }
 
 .main-section {
   position: absolute;
@@ -88,11 +111,8 @@ img {
         .main-section .container__weather .weather-box .weather-img {
           width: 150px; }
       .main-section .container__weather .city {
-        position: absolute;
-        top: 30px;
-        left: 30px;
         font-size: 2rem;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0;
         border-radius: 10px; }
         .main-section .container__weather .city:hover {
           background: rgba(93, 93, 93, 0.2);
@@ -132,13 +152,16 @@ img {
       border: none;
       display: flex;
       flex-direction: column;
-      justify-content: space-evenly;
-      align-content: center; }
+      justify-content: flex-start;
+      align-content: center;
+      grid-row: span 2; }
       .main-section .container__todo .input-field,
       .main-section .container__todo .display-field {
-        width: 100%; }
-      .main-section .container__todo .todo-label {
-        font-size: 1.3rem; }
+        width: 100%;
+        margin-bottom: 0.5rem; }
+        .main-section .container__todo .input-field .tasks-list,
+        .main-section .container__todo .display-field .tasks-list {
+          overflow-y: auto; }
       .main-section .container__todo .todo-input {
         width: 70%;
         padding: 0.7rem;
