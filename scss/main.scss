@@ -173,13 +173,11 @@ img {
       }
     }
 
-    &__week-temp {}
-
     &__date-time-msg {
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: flex-start;
       padding: 2rem;
 
@@ -208,8 +206,6 @@ img {
           text-align: center;
           padding: 0 1rem;
         }
-
-        &__text {}
 
         &__author {
           font-size: 1.2rem;
@@ -252,8 +248,6 @@ img {
           }
         }
       }
-
-      .task-title {}
     }
   }
 }

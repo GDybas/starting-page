@@ -128,7 +128,7 @@ img {
       position: relative;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: flex-start;
       padding: 2rem; }
       .main-section .container__date-time-msg .time-date {
