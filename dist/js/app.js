@@ -20,11 +20,12 @@ function loadEventListeners() {
   //init time
   document.addEventListener("DOMContentLoaded", getTime);
   document.addEventListener("DOMContentLoaded", loadQuote);
-
   //Adding tasks
   form.addEventListener("submit", addTask);
   taskList.addEventListener("click", removeTask);
   clearBtn.addEventListener("click", clearTasks);
+  //weather listeners
+  tempInfo.addEventListener('click', tempUnitChange);
 }
 
 //Add Tasks

@@ -30,7 +30,7 @@ img {
 }
 
 .bg-image {
-  background: $sunny; //zmiana tła zależnie od pogody
+  background: $stormy; //zmiana tła zależnie od pogody
   filter: blur(4px);
   -webkit-filter: blur(4px);
   height: 100vh;
@@ -44,7 +44,7 @@ img {
   text-align: center;
   font-size: 1rem;
   width: 150px;
-  padding: 0.5rem 0.5rem;
+  padding: 0.7rem 0.5rem;
 
   background: rgb(246, 209, 0);
   border: none;
@@ -53,6 +53,11 @@ img {
   color: #000;
   font-weight: bold;
   transition: 0.2s;
+
+  &-high {
+    padding: 0.9rem 0.5rem;
+    margin-bottom: 0.5rem;
+  }
 
   &:hover {
     background: rgb(255, 187, 0);
@@ -69,16 +74,16 @@ img {
 //Classes for created tasks' elements
 .tasks-list {
   &__item {
-    background: rgb(250, 193, 38);
+    background: linear-gradient(162deg, rgba(1, 92, 183, 1) 42%, rgba(1, 93, 184, 0.6786064767703957) 83%, rgba(0, 80, 158, 0.7539390756302521) 100%);
     border: 2px solid #fff;
     display: flex;
     justify-content: space-between;
     width: 70%;
-    padding: 0.4rem 0.5rem;
+    padding: 0.8rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 5px;
-    font-size: 1rem;
-    color: #000;
+    font-size: 1.2rem;
+    color: #fff;
   }
 
   .delete-item {
@@ -87,7 +92,7 @@ img {
     // background: #333;
     border-radius: 5px;
     // padding: 0 0.6rem;
-    color: #000;
+    color: #fff;
     transition: 0.2s;
     font-size: 1rem;
 
@@ -139,16 +144,31 @@ img {
     &__weather {
       position: relative;
       display: grid;
-      grid-template-areas:
-        'weather-box  weather-info'
-        'weather-box  dawn-twilight-box';
+      grid-template-columns: 1fr 2fr;
+      // grid-gap: 1rem;
+      // grid-template-areas:
+      //   "weather-box  weather-info "
+      //   "weather-box  dawn-twilight-box ";
       // display: flex;
       justify-content: space-evenly;
       align-content: center;
+      padding: 2rem;
+
+      .alert-box {
+        background: red;
+        position: absolute;
+        top: 0;
+        left: 25%;
+        width: 50%;
+        height: 40px;
+        font-size: 1.1rem;
+        padding: 0.5rem 3rem;
+        text-align: center;
+      }
 
       .weather-box {
         text-align: center;
-        grid-area: 'weather-box';
+        margin-right: 1rem;
 
         .weather-img {
           width: 150px;
@@ -156,7 +176,7 @@ img {
 
         .city {
           font-size: 2rem;
-          padding: 0.5rem 0;
+          padding: 1rem 0;
           border-radius: 10px;
 
           &:hover {
@@ -167,24 +187,48 @@ img {
         }
       }
 
+      .weather-side {
+        display: flex;
+        // flex-direction: column;
+        justify-content: space-evenly;
+        align-items: stretch;
 
 
-      .weather-info {
-        // background: rgba(0, 0, 0, 0.6);
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-area: 'weather-info';
-        border-radius: 10px;
-        border: 1px solid #d4d4d4;
-        padding: 1rem 2rem;
-        font-size: 1.5rem;
-        line-height: 1.9;
+        .weather-info {
+          // background: rgba(0, 0, 0, 0.6);
+          display: grid;
+          // grid-template-columns: repeat(1, 1fr);
+          border-radius: 10px;
+          border: 1px solid #d4d4d4;
+          padding: 1rem 2rem;
+          font-size: 1.3rem;
+          line-height: 1.9;
+
+          p {
+            margin: .5rem .5rem;
+            text-align: center;
+            font-size: 2rem;
+          }
+        }
+
+        .dawn-twilight-box {
+          display: flex;
+          justify-content: space-evenly;
+          flex-direction: column;
+          border: 1px solid #d4d4d4;
+          border-radius: 10px;
+          // margin-top: 1rem;
+          font-size: 2rem;
+          text-align: center;
+          padding: 0.8rem;
+
+          .dawn,
+          .twilight {
+            width: 70px;
+            margin: 0.5rem;
+          }
+        }
       }
-
-      .dawn-twilight-box {
-        grid-area: 'dawn-twilight-box';
-      }
-
     }
 
     &__date-time-msg {
@@ -223,7 +267,9 @@ img {
           align-self: center;
         }
 
-
+        &__text {
+          font-size: 1.3rem;
+        }
 
         &__author {
           font-size: 1.2rem;
@@ -239,11 +285,11 @@ img {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      align-content: center;
       grid-row: span 2;
 
       .input-field {
         width: 100%;
+        // margin: 0.5rem 0;
 
         // justify-content: center;
       }
@@ -251,6 +297,10 @@ img {
       .display-field {
         width: 100%;
         margin-bottom: 0.5rem;
+
+        .task-title {
+          margin: 1rem 0;
+        }
 
         .tasks-list {
           overflow-y: auto;
@@ -260,11 +310,12 @@ img {
       .todo {
         &-input {
           width: 70%;
-          padding: 0.7rem;
-          border-radius: 3px;
+          padding: 1rem;
+          border-radius: 8px;
           border: none;
           background: rgba(0, 0, 0, 0.5);
           color: #fff;
+          font-size: 1.2rem;
 
           &:focus {
             background: rgba(0, 0, 0, 0.7);

@@ -33,44 +33,46 @@
       </div>
       <div class="container container__todo">
         <div class="input-field">
-          <h6 class="task-title">Tasks List</h6>
+          <!-- <h6 class="task-title">Tasks List</h6> -->
           <form id="task-form">
             <div class="input-field">
               <input class="todo-input" type="text" name="task" id="task" placeholder="Insert New Task...">
-              <input type="submit" value="Add Task" class="btn">
+              <input type="submit" value="Add Task" class="btn btn-high">
             </div>
           </form>
         </div>
         <div class="display-field">
-          <h6 class="task-title">Tasks</h6>
+          <h6 class="task-title">Tasks to do:</h6>
           <ul class="tasks-list"></ul>
-          <a href="#" class="clear-tasks btn">Clear Tasks</a>
+          <a href="#" class="clear-tasks btn">Clear All</a>
         </div>
       </div>
 
       <div class="container container__weather">
+        <div class="alert-box">User Denied Geolocation</div>
         <div class="weather-box">
-          <div class="city">Gorlice</div>
-          <img
-            class="weather-img"
-            src="./img/weather-icons/stormy-icon.png"
-            alt="Weather Icon"
-          />
-          <div class="temp-info">27 &#176C</div>
+          <div class="city">---</div>
+          
+          <div class="temp-info">-- </div>
         </div>
-
+<div class="weather-side">
         <div class="weather-info">
-          <p class="humidity">Humidity: 30%</p>
-          <p class="precipitation">Precipitation: 14%</p>
-          <p class="wind">Wind: 10 km/h</p>
-          <p class="pressure">Pressure:  1013 hPa</p>
+          <p class="humidity fa fa-tint "></p>
+          <p class="precipitation fa fa-umbrella "></p>
+          <p class="wind fa fa-wind "></p>
+          <p class="pressure fa fa-angle-double-down"></p>
         </div>
         <div class="dawn-twilight-box">
           <div class="dawn">
-            <img src="" alt="" class="dawn-img">
+            <img src="./img/weather-icons/dawn-icon.png" alt="" class="dawn-img">
+            <span class="dawn-time">--:--</span>
           </div>
-          <div class="twilight"></div>
+          <div class="twilight">
+            <img src="./img/weather-icons/twilight-icon.png" alt="" class="twilight-img">
+            <span class="twilight-time">--:--</span>
+          </div>
         </div>
+      </div>
       </div>
       
         
