@@ -13,6 +13,9 @@ const author = document.querySelector(".quote__author");
 loadEventListeners();
 
 function loadEventListeners() {
+  //weather listeners
+  tempInfo.addEventListener('click', tempUnitChange);
+  // document.addEventListener('DOMContentLoaded', displayWeather);
   //Loading saved data from LS
   document.addEventListener("DOMContentLoaded", getTasks);
   //init date and time
@@ -24,8 +27,7 @@ function loadEventListeners() {
   form.addEventListener("submit", addTask);
   taskList.addEventListener("click", removeTask);
   clearBtn.addEventListener("click", clearTasks);
-  //weather listeners
-  tempInfo.addEventListener('click', tempUnitChange);
+
 }
 
 //Add Tasks

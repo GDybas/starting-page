@@ -74,7 +74,10 @@ img {
 //Classes for created tasks' elements
 .tasks-list {
   &__item {
-    background: linear-gradient(162deg, rgba(1, 92, 183, 1) 42%, rgba(1, 93, 184, 0.6786064767703957) 83%, rgba(0, 80, 158, 0.7539390756302521) 100%);
+    background: linear-gradient(162deg,
+        rgba(1, 92, 183, 1) 42%,
+        rgba(1, 93, 184, 0.6786064767703957) 83%,
+        rgba(0, 80, 158, 0.7539390756302521) 100%);
     border: 2px solid #fff;
     display: flex;
     justify-content: space-between;
@@ -155,14 +158,15 @@ img {
       padding: 2rem;
 
       .alert-box {
+        display: none;
         background: red;
         position: absolute;
         top: 0;
         left: 25%;
         width: 50%;
         height: 40px;
-        font-size: 1.1rem;
-        padding: 0.5rem 3rem;
+        font-size: 1rem;
+        padding: 0.65rem 3rem;
         text-align: center;
       }
 
@@ -172,32 +176,42 @@ img {
 
         .weather-img {
           width: 150px;
+          margin: 0 auto;
+        }
+
+        .weather-desc {
+          font-size: 1.3rem;
         }
 
         .city {
           font-size: 2rem;
           padding: 1rem 0;
+        }
+
+        .temp-info {
+          padding: 0.5rem 0;
           border-radius: 10px;
+          transition: 0.3s;
+          width: 60%;
+          margin: 0 auto;
 
           &:hover {
-            background: rgba(93, 93, 93, 0.2);
-            transition: 0.3s;
             cursor: pointer;
+            background: rgba(67, 161, 255, 0.83);
           }
         }
       }
 
       .weather-side {
         display: flex;
-        // flex-direction: column;
+        flex-direction: column;
         justify-content: space-evenly;
-        align-items: stretch;
-
+        // align-items: stretch;
 
         .weather-info {
           // background: rgba(0, 0, 0, 0.6);
           display: grid;
-          // grid-template-columns: repeat(1, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           border-radius: 10px;
           border: 1px solid #d4d4d4;
           padding: 1rem 2rem;
@@ -205,27 +219,26 @@ img {
           line-height: 1.9;
 
           p {
-            margin: .5rem .5rem;
+            margin: 0.5rem 0.5rem;
             text-align: center;
             font-size: 2rem;
           }
         }
 
-        .dawn-twilight-box {
+        .sunrise-sunset-box {
           display: flex;
           justify-content: space-evenly;
-          flex-direction: column;
           border: 1px solid #d4d4d4;
           border-radius: 10px;
-          // margin-top: 1rem;
+          margin-top: 1rem;
           font-size: 2rem;
           text-align: center;
           padding: 0.8rem;
 
-          .dawn,
-          .twilight {
+          .sunrise,
+          .sunset {
             width: 70px;
-            margin: 0.5rem;
+            // margin: 0.5rem;
           }
         }
       }
