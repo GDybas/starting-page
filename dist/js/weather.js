@@ -3,9 +3,6 @@ const apiKey = '209c288b6edff8f1ba13eb49283b2207';
 // KELVIN VALUE FOR CONVERSION TO CELSIUS
 const KELVIN = 273;
 
-//background
-const bgImage = document.querySelector(".bg-image");
-
 //weather box
 const weatherImage = document.querySelector(".weather-img");
 const weatherDesc = document.querySelector(".weather-desc");
@@ -20,9 +17,13 @@ const humidity = document.querySelector(".humidity");
 const precipitation = document.querySelector(".precipitation");
 const wind = document.querySelector(".wind");
 const pressure = document.querySelector(".pressure");
+
 //Twilight Dawn info
-const dawnTime = document.querySelector(".dawn-time");
-const twilightTime = document.querySelector(".twilight-time");
+const sunrise = document.querySelector(".sunrise-time");
+const sunset = document.querySelector(".sunset-time");
+
+//background
+const bgImageBox = document.querySelector(".bg-image-container");
 
 
 
@@ -31,11 +32,20 @@ const weather = {
     value: 2,
     unit: "celsius",
   },
-
+  info: {
+    humidity: 60,
+    pressure: 1000,
+    wind: 2,
+  },
   description: "desc",
   iconId: "icon",
   city: "city",
-  country: 'country'
+  country: 'country',
+  condition: 'condition',
+  time: {
+    sunrise: 1549312452,
+    sunset: 1549312452,
+  },
 };
 
 function displayWeather() {
@@ -43,10 +53,61 @@ function displayWeather() {
   weatherDesc.innerHTML = `${weather.description}`
   tempInfo.innerHTML = `${weather.temperature.value} &#176<span>C</span>`;
   city.innerHTML = `${weather.city}`;
+  humidity.innerHTML = `<span class="weather-info__text"> ${weather.info.humidity}%</span>`;
+  wind.innerHTML = `<span class="weather-info__text"> ${weather.info.wind} km/h</span>`;
+  pressure.innerHTML = `<span class="weather-info__text"> ${weather.info.pressure} hPa</span>`;
 }
 
-function tempUnitChange() {
+function setSunTime() {
+  const sunriseTime = new Date(weather.time.sunrise * 1000);
+  const sunsetTime = new Date(weather.time.sunset * 1000);
+  let sunriseHour = sunriseTime.getHours();
+  let sunriseMinutes = sunriseTime.getMinutes();
+  let sunsetHour = sunsetTime.getHours();
+  let sunsetMinutes = sunsetTime.getMinutes();
 
+  (sunriseHour < 10) ? sunriseHour = '0' + sunriseHour: '' + sunriseHour;
+  (sunriseMinutes < 10) ? sunriseMinutes = '0' + sunriseMinutes: '' + sunriseMinutes;
+  (sunsetHour < 10) ? sunsetHour = '0' + sunsetHour: '' + sunsetHour;
+  (sunsetMinutes < 10) ? sunsetMinutes = '0' + sunsetMinutes: '' + sunsetMinutes;
+
+  sunrise.innerHTML = `${sunriseHour}:${sunriseMinutes}`;
+  sunset.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
+}
+
+function setBackgroundImage(condition) {
+  let bgImage;
+  switch (condition) {
+    case 'Clouds':
+      bgImage = `url('./img/background-images/cloudy.jpg')`;
+      break;
+    case 'Drizzle':
+      bgImage = `url('./img/background-images/rainy.jpg')`;
+      break;
+    case 'Clear':
+      bgImage = `url('./img/background-images/sunny.jpg')`;
+      break;
+    case 'Mist':
+      bgImage = `url('./img/background-images/mist.jpg')`;
+      break;
+    case 'Fog':
+      bgImage = `url('./img/background-images/mist.jpg')`;
+      break;
+    case 'Snow':
+      bgImage = `url('./img/background-images/snowy.jpg')`;
+      break;
+    case 'Rain':
+      bgImage = `url('./img/background-images/rainy.jpg')`;
+      break;
+    case 'Thunderstorm':
+      bgImage = `url('./img/background-images/stormy.jpg')`;
+      break;
+  }
+  bgImageBox.style.backgroundImage = bgImage;
+}
+
+
+function tempUnitChange() {
   if (weather.temperature.value === undefined) return;
   if (weather.temperature.unit === 'celsius') {
     let fahrenheit = celsiusToFahrenheit(weather.temperature.value);
@@ -66,11 +127,6 @@ function celsiusToFahrenheit(celsius) {
   let fahrenheitValue = celsius / 5 * 9 + 32;
   return fahrenheitValue;
 }
-
-// function fahrenheitToCelsius(fahrenheit) {
-//   let celsiusValue = (fahrenheit - 32) * 5 / 9;
-//   return celsiusValue;
-// }
 
 // CHECKING IF GEOLOCATION SERVICES ARE AVIABLE
 if ("geolocation" in navigator) {
@@ -94,7 +150,7 @@ function showError(error) {
 }
 
 function getWeather(latitude, longitude) {
-  let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=current,daily&appid=${apiKey}`;
+  let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
 
   fetch(api).then(response => {
       let data = response.json();
@@ -106,9 +162,17 @@ function getWeather(latitude, longitude) {
       weather.iconId = data.weather[0].icon;
       weather.city = data.name;
       weather.country = data.sys.country;
+      weather.info.humidity = data.main.humidity;
+      weather.info.pressure = data.main.pressure;
+      weather.info.wind = Math.floor(data.wind.speed);
+      weather.condition = data.weather[0].main;
+      weather.time.sunrise = data.sys.sunrise;
+      weather.time.sunset = data.sys.sunset;
       console.log(data);
     })
     .then(() => {
       displayWeather();
+      setBackgroundImage(weather.condition);
+      setSunTime();
     })
 }

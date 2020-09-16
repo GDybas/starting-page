@@ -1,15 +1,14 @@
 //Background Images
-$sunny: url('../img/background-images/sunny2.jpg') no-repeat center right / cover;
-$rainy: url('../img/background-images/rainy.jpg') no-repeat center right / cover;
-$snowy: url('../img/background-images/snowy.jpg') no-repeat center right / cover;
-$stormy: url('../img/background-images/stormy.jpg') no-repeat center right / cover;
-$cloudy: url('../img/background-images/cloudy.jpg') no-repeat center right / cover;
+$sunny: url('../img/background-images/sunny.jpg');
+$rainy: url('../img/background-images/rainy.jpg');
+$snowy: url('../img/background-images/snowy.jpg');
+$stormy: url('../img/background-images/stormy.jpg');
+$cloudy: url('../img/background-images/cloudy.jpg');
+$mist: url('../img/background-images/mist.jpg');
 
+$bg: no-repeat center right / cover;
 
-// $container-color: rgba(0, 0, 0, 0.55);
-// $container-color: radial-gradient(circle, rgba(0, 0, 0, 0.5046393557422969) 25%, rgba(0, 0, 0, 0.6474964985994398) 50%, rgba(0, 0, 0, 0.7483368347338936) 75%);
 $container-color: radial-gradient(circle, rgba(0, 108, 216, 0.553) 0%, rgba(0, 97, 194, 0.6504) 76%);
-// $container-color: linear-gradient(162deg, rgba(1, 92, 183, 1) 42%, rgba(1, 93, 184, 0.6786064767703957) 83%, rgba(0, 80, 158, 0.7539390756302521) 100%);
 
 
 $font: 'Roboto',

@@ -12,6 +12,7 @@ const author = document.querySelector(".quote__author");
 
 loadEventListeners();
 
+
 function loadEventListeners() {
   //weather listeners
   tempInfo.addEventListener('click', tempUnitChange);
@@ -22,6 +23,7 @@ function loadEventListeners() {
   document.addEventListener("DOMContentLoaded", getDate);
   //init time
   document.addEventListener("DOMContentLoaded", getTime);
+  //Fetching quote function
   document.addEventListener("DOMContentLoaded", loadQuote);
   //Adding tasks
   form.addEventListener("submit", addTask);
@@ -132,9 +134,28 @@ function loadQuote(e) {
   fetch("https://api.quotable.io/random")
     .then(response => response.json())
     .then(data => {
-      console.log(`${data.content} —${data.author}`);
       quote.innerHTML = `${data.content}`;
-      author.innerHTML = `~${data.author}`;
+      author.innerHTML = `~ ${data.author}`;
     });
   e.preventDefault();
 }
+
+// NEWS API need to be server request
+// function getNews() {
+//   const apiKey = '22c13112be454f6fba77a96953475c6b';
+//   // let api = 'http://newsapi.org/v2/top-headlines?' + 'country=us&' + `apiKey=22c13112be454f6fba77a96953475c6b`;
+//   // let api = 'https://eventregistry.org/api/v1/article/getArticles?resultType=articles&keyword=Bitcoin&keyword=Litecoin&keywordOper=or&lang=eng&articlesSortBy=date&includeArticleConcepts=true&articleBodyLen=300&forceMaxDataTimeWindow=31&apiKey=API_KEY';
+
+//   let api = 'https://newsapi.org/v2/sources?apiKey=22c13112be454f6fba77a96953475c6b';
+
+//   fetch(api).then(response => {
+//       let data = response.json();
+//       return data;
+//     })
+//     .then(data => {
+//       console.log(data);
+//     });
+
+// }
+
+// getNews();

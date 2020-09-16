@@ -29,8 +29,12 @@ img {
   width: 100%;
 }
 
-.bg-image {
-  background: $stormy; //zmiana tła zależnie od pogody
+.bg-image-container {
+  // background: $rainy; //zmiana tła zależnie od pogody
+  // background-image: url('../img/background-images/mist.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   filter: blur(4px);
   -webkit-filter: blur(4px);
   height: 100vh;
@@ -211,17 +215,27 @@ img {
         .weather-info {
           // background: rgba(0, 0, 0, 0.6);
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           border-radius: 10px;
           border: 1px solid #d4d4d4;
-          padding: 1rem 2rem;
+          padding: 1rem 1rem;
           font-size: 1.3rem;
           line-height: 1.9;
 
-          p {
+          &__sub-container {
             margin: 0.5rem 0.5rem;
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
+            text-align: center;
+          }
+
+          &__text {
+            display: inline-block;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+            padding: 0.5rem 0;
+            font-family: 'Roboto', 'sans-serif';
+            font-weight: normal;
           }
         }
 
@@ -238,11 +252,15 @@ img {
           .sunrise,
           .sunset {
             width: 70px;
+            text-align: center;
+            font-size: 1.3rem;
             // margin: 0.5rem;
           }
         }
       }
     }
+
+
 
     &__date-time-msg {
       position: relative;
@@ -302,9 +320,6 @@ img {
 
       .input-field {
         width: 100%;
-        // margin: 0.5rem 0;
-
-        // justify-content: center;
       }
 
       .display-field {
@@ -327,8 +342,12 @@ img {
           border-radius: 8px;
           border: none;
           background: rgba(0, 0, 0, 0.5);
-          color: #fff;
           font-size: 1.2rem;
+          color: #fff;
+
+          &::placeholder {
+            color: #fff;
+          }
 
           &:focus {
             background: rgba(0, 0, 0, 0.7);

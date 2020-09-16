@@ -13,7 +13,7 @@
     <title>Starting Page</title>
   </head>
   <body>
-    <div class="bg-image"></div>
+    <div class="bg-image-container"></div>
     <section class="main-section">
       <div class="settings-box">
         <i class="fas fa-user-cog settings-box__icon"></i>
@@ -21,9 +21,9 @@
 
       <div class="container container__date-time-msg">
         <div class="time-date">
-          <div class="clock">--:--</div>
+          <div class="clock"></div>
           <div class="date">
-            <span class="day-name">--, --, ----</span>
+            <span class="day-name"></span>
           </div>
         </div>
         <div class="quote__box">
@@ -33,7 +33,6 @@
       </div>
       <div class="container container__todo">
         <div class="input-field">
-          <!-- <h6 class="task-title">Tasks List</h6> -->
           <form id="task-form">
             <div class="input-field">
               <input class="todo-input" type="text" name="task" id="task" placeholder="Insert New Task...">
@@ -59,10 +58,10 @@
         </div>
 <div class="weather-side">
         <div class="weather-info">
-          <p class="humidity fa fa-tint"></p>
-          <p class="precipitation fa fa-umbrella"></p>
-          <p class="wind fa fa-wind"></p>
-          <p class="pressure fa fa-angle-double-down"></p>
+          <div class="weather-info__sub-container"><p class="humidity fa fa-tint"></p></div>
+          <!-- <div class=""></div><p class="precipitation fa fa-umbrella"></p> -->
+          <div class="weather-info__sub-container"><p class="wind fa fa-wind"></p></div>
+          <div class="weather-info__sub-container"><p class="pressure fa fa-angle-double-down"></p></div>
         </div>
         <div class="sunrise-sunset-box">
           <div class="sunrise">
@@ -88,7 +87,6 @@
     <script src="js/date-time.js"></script>
     <script src="js/weather.js"></script>
     <script src="js/quotes.js"></script>
-    <script src="js/ui.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

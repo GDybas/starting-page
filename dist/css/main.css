@@ -24,8 +24,10 @@ h4 {
 img {
   width: 100%; }
 
-.bg-image {
-  background: url("../img/background-images/stormy.jpg") no-repeat center right/cover;
+.bg-image-container {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   filter: blur(4px);
   -webkit-filter: blur(4px);
   height: 100vh;
@@ -150,16 +152,24 @@ img {
         justify-content: space-evenly; }
         .main-section .container__weather .weather-side .weather-info {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           border-radius: 10px;
           border: 1px solid #d4d4d4;
-          padding: 1rem 2rem;
+          padding: 1rem 1rem;
           font-size: 1.3rem;
           line-height: 1.9; }
-          .main-section .container__weather .weather-side .weather-info p {
+          .main-section .container__weather .weather-side .weather-info__sub-container {
             margin: 0.5rem 0.5rem;
             text-align: center;
-            font-size: 2rem; }
+            font-size: 1.5rem;
+            text-align: center; }
+          .main-section .container__weather .weather-side .weather-info__text {
+            display: inline-block;
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+            padding: 0.5rem 0;
+            font-family: 'Roboto', 'sans-serif';
+            font-weight: normal; }
         .main-section .container__weather .weather-side .sunrise-sunset-box {
           display: flex;
           justify-content: space-evenly;
@@ -171,7 +181,9 @@ img {
           padding: 0.8rem; }
           .main-section .container__weather .weather-side .sunrise-sunset-box .sunrise,
           .main-section .container__weather .weather-side .sunrise-sunset-box .sunset {
-            width: 70px; }
+            width: 70px;
+            text-align: center;
+            font-size: 1.3rem; }
     .main-section .container__date-time-msg {
       position: relative;
       display: flex;
@@ -220,7 +232,9 @@ img {
         border-radius: 8px;
         border: none;
         background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        font-size: 1.2rem; }
+        font-size: 1.2rem;
+        color: #fff; }
+        .main-section .container__todo .todo-input::placeholder {
+          color: #fff; }
         .main-section .container__todo .todo-input:focus {
           background: rgba(0, 0, 0, 0.7); }

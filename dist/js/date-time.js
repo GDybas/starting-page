@@ -114,5 +114,5 @@ function getTime() {
 
   const clockContainer = document.querySelector(".clock");
   clockContainer.innerHTML = `${hour}:${minutes}`;
-  // console.log(sec);
+  console.log(sec);
 }
