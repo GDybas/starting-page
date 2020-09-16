@@ -2,8 +2,16 @@
 const apiKey = '209c288b6edff8f1ba13eb49283b2207';
 // KELVIN VALUE FOR CONVERSION TO CELSIUS
 const KELVIN = 273;
+// Variable for changing view
+let stage = true;
 
-//weather box
+//weather 
+const weatherBox = document.querySelector('.weather-box');
+const weatherSide = document.querySelector('.weather-side');
+
+const weatherWeek = document.querySelector('.weather-week-box');
+const changeIcon = document.querySelector('.change-view-icon');
+
 const weatherImage = document.querySelector(".weather-img");
 const weatherDesc = document.querySelector(".weather-desc");
 const tempInfo = document.querySelector(".temp-info");
@@ -175,4 +183,26 @@ function getWeather(latitude, longitude) {
       setBackgroundImage(weather.condition);
       setSunTime();
     })
+}
+
+function changeWeatherView(e) {
+
+  if (stage === true) {
+    weatherBox.style.display = 'none';
+    weatherSide.style.display = 'none';
+    weatherWeek.style.display = 'block';
+    // changeIcon.style.color = 'rgb(151, 255, 151);';
+    console.log('first');
+    stage = false;
+
+  } else {
+    console.log(weatherBox.style.display);
+    weatherBox.style.display = 'block';
+    weatherSide.style.display = 'flex';
+    weatherWeek.style.display = 'none';
+    // changeIcon.style.color = '#fff';
+    console.log('second');
+    stage = true;
+  }
+  e.preventDefault();
 }

@@ -17,6 +17,7 @@ function loadEventListeners() {
   //weather listeners
   tempInfo.addEventListener('click', tempUnitChange);
   // document.addEventListener('DOMContentLoaded', displayWeather);
+  changeIcon.addEventListener('click', changeWeatherView);
   //Loading saved data from LS
   document.addEventListener("DOMContentLoaded", getTasks);
   //init date and time

@@ -110,6 +110,7 @@ img {
   }
 }
 
+
 .main-section {
   position: absolute;
   top: 0;
@@ -174,9 +175,27 @@ img {
         text-align: center;
       }
 
+      .change-view-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 2rem;
+        transition: 0.2s;
+        padding: 0.7rem 1rem;
+        border-radius: 10px;
+
+        &:hover {
+          color: rgb(151, 255, 151);
+          cursor: pointer;
+          background: rgba(0, 0, 0, 0.5)
+        }
+      }
+
       .weather-box {
         text-align: center;
         margin-right: 1rem;
+        // //////////////////
+        display: block;
 
         .weather-img {
           width: 150px;
@@ -208,6 +227,7 @@ img {
 
       .weather-side {
         display: flex;
+        // display: none;
         flex-direction: column;
         justify-content: space-evenly;
         // align-items: stretch;
@@ -257,6 +277,10 @@ img {
             // margin: 0.5rem;
           }
         }
+      }
+
+      .weather-week-box {
+        display: none;
       }
     }
 

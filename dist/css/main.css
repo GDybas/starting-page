@@ -126,9 +126,22 @@ img {
         font-size: 1rem;
         padding: 0.65rem 3rem;
         text-align: center; }
+      .main-section .container__weather .change-view-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 2rem;
+        transition: 0.2s;
+        padding: 0.7rem 1rem;
+        border-radius: 10px; }
+        .main-section .container__weather .change-view-icon:hover {
+          color: #97ff97;
+          cursor: pointer;
+          background: rgba(0, 0, 0, 0.5); }
       .main-section .container__weather .weather-box {
         text-align: center;
-        margin-right: 1rem; }
+        margin-right: 1rem;
+        display: block; }
         .main-section .container__weather .weather-box .weather-img {
           width: 150px;
           margin: 0 auto; }
@@ -184,6 +197,8 @@ img {
             width: 70px;
             text-align: center;
             font-size: 1.3rem; }
+      .main-section .container__weather .weather-week-box {
+        display: none; }
     .main-section .container__date-time-msg {
       position: relative;
       display: flex;
