@@ -9,13 +9,24 @@ let stage = true;
 const weatherBox = document.querySelector('.weather-box');
 const weatherSide = document.querySelector('.weather-side');
 
-const weatherWeek = document.querySelector('.weather-week-box');
+const weatherWeek = document.querySelector('.weather-week');
 const changeIcon = document.querySelector('.change-view-icon');
 
 const weatherImage = document.querySelector(".weather-img");
 const weatherDesc = document.querySelector(".weather-desc");
 const tempInfo = document.querySelector(".temp-info");
 const errorNotification = document.querySelector('.alert-box');
+
+// WEATHER WEEK DAYS VARIABLES
+const boxDay1 = document.querySelector('.day__1');
+const boxDay2 = document.querySelector('.day__2');
+const boxDay3 = document.querySelector('.day__3');
+const boxDay4 = document.querySelector('.day__4');
+const boxDay5 = document.querySelector('.day__5');
+const boxDay6 = document.querySelector('.day__6');
+
+const dayAnchorsArray = [boxDay1, boxDay2, boxDay3, boxDay4, boxDay5, boxDay6];
+
 
 //city
 const city = document.querySelector(".city");
@@ -44,6 +55,7 @@ const weather = {
     humidity: 60,
     pressure: 1000,
     wind: 2,
+    precipitation: 30,
   },
   description: "desc",
   iconId: "icon",
@@ -56,6 +68,34 @@ const weather = {
   },
 };
 
+class WeatherDay {
+  constructor(day, icon, temp, condition) {
+    this.day = day;
+    this.icon = icon;
+    this.temp = Math.floor(temp - KELVIN);
+    this.condition = condition;
+  }
+
+  get dayName() {
+    return this.getDayName();
+  }
+
+  getDayName() {
+    let date = new Date(this.day * 1000);
+    let dayDate = date.getDay();
+    let dayName = setDayName(dayDate);
+    return dayName;
+  }
+}
+
+
+
+// day1.day = 1600328805;
+
+// console.log(day1.getDayName(day1.day));
+
+
+
 function displayWeather() {
   weatherImage.innerHTML = `<img src="./img/weather-icons/${weather.iconId}.png" alt="Weather Icon"/>`;
   weatherDesc.innerHTML = `${weather.description}`
@@ -64,6 +104,7 @@ function displayWeather() {
   humidity.innerHTML = `<span class="weather-info__text"> ${weather.info.humidity}%</span>`;
   wind.innerHTML = `<span class="weather-info__text"> ${weather.info.wind} km/h</span>`;
   pressure.innerHTML = `<span class="weather-info__text"> ${weather.info.pressure} hPa</span>`;
+  precipitation.innerHTML = `<span class="weather-info__text"> ${weather.info.precipitation} mm</span>`;
 }
 
 function setSunTime() {
@@ -81,6 +122,20 @@ function setSunTime() {
 
   sunrise.innerHTML = `${sunriseHour}:${sunriseMinutes}`;
   sunset.innerHTML = `${sunsetHour}:${sunsetMinutes}`;
+}
+
+function displayWeatherWeek() {
+  const dayObjectsArray = [day1, day2, day3, day4, day5, day6];
+  for (let i = 0; dayAnchorsArray.length; i++) {
+
+    dayAnchorsArray[i].innerHTML = `
+    <div class="day-name">${dayObjectsArray[i].dayName}</div>
+    <div class="day-temp">${dayObjectsArray[i].temp}&#176 <span>C</span></div>
+    <div class="icon">
+      <img src="./img/weather-icons/${dayObjectsArray[i].icon}.png" alt="Icon" />
+    </div>
+    <div class="condition">${dayObjectsArray[i].condition}</div>`
+  }
 }
 
 function setBackgroundImage(condition) {
@@ -150,6 +205,7 @@ function setPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   getWeather(latitude, longitude);
+  getWeatherWeek(latitude, longitude);
 }
 
 function showError(error) {
@@ -185,23 +241,45 @@ function getWeather(latitude, longitude) {
     })
 }
 
+function getWeatherWeek(latitude, longitude) {
+  let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+  fetch(api).then(response => {
+      let data = response.json();
+      return data;
+    })
+    .then(data => {
+      const res = data.daily;
+      // console.log('sssss');
+      day1 = new WeatherDay(res[1].dt, res[1].weather[0].icon, res[1].temp.day, res[1].weather[0].description);
+      day2 = new WeatherDay(res[2].dt, res[2].weather[0].icon, res[2].temp.day, res[2].weather[0].description);
+      day3 = new WeatherDay(res[3].dt, res[3].weather[0].icon, res[3].temp.day, res[3].weather[0].description);
+      day4 = new WeatherDay(res[4].dt, res[4].weather[0].icon, res[4].temp.day, res[4].weather[0].description);
+      day5 = new WeatherDay(res[5].dt, res[5].weather[0].icon, res[5].temp.day, res[5].weather[0].description);
+      day6 = new WeatherDay(res[6].dt, res[6].weather[0].icon, res[6].temp.day, res[6].weather[0].description);
+
+      // Rain for current day
+      weather.info.precipitation = data.daily.rain;
+      console.log(data);
+    })
+    .then(() => {
+      displayWeatherWeek();
+    })
+}
+
+
 function changeWeatherView(e) {
 
   if (stage === true) {
     weatherBox.style.display = 'none';
     weatherSide.style.display = 'none';
-    weatherWeek.style.display = 'block';
-    // changeIcon.style.color = 'rgb(151, 255, 151);';
-    console.log('first');
+    weatherWeek.style.display = 'grid';
     stage = false;
 
   } else {
-    console.log(weatherBox.style.display);
     weatherBox.style.display = 'block';
     weatherSide.style.display = 'flex';
     weatherWeek.style.display = 'none';
-    // changeIcon.style.color = '#fff';
-    console.log('second');
     stage = true;
   }
   e.preventDefault();

@@ -122,6 +122,7 @@ img {
   width: 100%;
 
   .settings-box {
+    display: none; //-----------------
     position: absolute;
     top: 15px;
     right: 15px;
@@ -153,6 +154,7 @@ img {
       position: relative;
       display: grid;
       grid-template-columns: 1fr 2fr;
+
       // grid-gap: 1rem;
       // grid-template-areas:
       //   "weather-box  weather-info "
@@ -160,7 +162,7 @@ img {
       // display: flex;
       justify-content: space-evenly;
       align-content: center;
-      padding: 2rem;
+      padding: 2rem 4rem 2rem 2rem;
 
       .alert-box {
         display: none;
@@ -180,14 +182,19 @@ img {
         top: 10px;
         left: 10px;
         font-size: 2rem;
-        transition: 0.2s;
+        transition: 0.1s;
         padding: 0.7rem 1rem;
         border-radius: 10px;
+
 
         &:hover {
           color: rgb(151, 255, 151);
           cursor: pointer;
           background: rgba(0, 0, 0, 0.5)
+        }
+
+        &:active {
+          color: red;
         }
       }
 
@@ -235,7 +242,7 @@ img {
         .weather-info {
           // background: rgba(0, 0, 0, 0.6);
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           border-radius: 10px;
           border: 1px solid #d4d4d4;
           padding: 1rem 1rem;
@@ -279,8 +286,43 @@ img {
         }
       }
 
-      .weather-week-box {
+      .weather-week {
         display: none;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column: 1/ span 4;
+        font-size: 1rem;
+        padding-left: 2rem;
+
+        .week-day {
+          border: 1px solid #fff;
+          border-radius: 10px;
+          margin: 0.5rem 1rem;
+          text-align: center;
+          padding: 1rem 0.5rem;
+
+          .day-name {
+            text-align: left;
+            display: inline-block;
+            width: 40%;
+            margin: 0 auto;
+          }
+
+          .day-temp {
+            width: 40%;
+            display: inline-block;
+            margin: 0 auto;
+          }
+
+          .icon {
+            // display: inline-block;
+            width: 60px;
+            margin: 0 auto;
+          }
+
+        }
+
+
+
       }
     }
 
@@ -299,7 +341,7 @@ img {
         // position: absolute;
         // top: 50px;
         // left: 50px;
-        line-height: 1;
+        line-height: 1.2;
 
         .clock {
           font-size: 4rem;

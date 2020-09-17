@@ -35,8 +35,14 @@
         <div class="input-field">
           <form id="task-form">
             <div class="input-field">
-              <input class="todo-input" type="text" name="task" id="task" placeholder="Insert New Task...">
-              <input type="submit" value="Add Task" class="btn btn-high">
+              <input
+                class="todo-input"
+                type="text"
+                name="task"
+                id="task"
+                placeholder="Insert New Task..."
+              />
+              <input type="submit" value="Add Task" class="btn btn-high" />
             </div>
           </form>
         </div>
@@ -50,39 +56,54 @@
       <div class="container container__weather">
         <div class="alert-box"></div>
         <div class="change-view-icon"><i class="fa fa-calendar"></i></div>
-        <div class="weather-box ">
+        <div class="weather-box">
           <div class="city"></div>
           <div class="weather-img"></div>
           <div class="weather-desc"></div>
           <div class="temp-info"></div>
-
         </div>
-      <div class="weather-side ">
-        <div class="weather-info">
-          <div class="weather-info__sub-container"><p class="humidity fa fa-tint"></p></div>
-          <!-- <div class=""></div><p class="precipitation fa fa-umbrella"></p> -->
-          <div class="weather-info__sub-container"><p class="wind fa fa-wind"></p></div>
-          <div class="weather-info__sub-container"><p class="pressure fa fa-angle-double-down"></p></div>
-        </div>
-        <div class="sunrise-sunset-box">
-          <div class="sunrise">
-            <img src="./img/weather-icons/sunrise-icon.png" alt="" class="sunrise-img">
-            <span class="sunrise-time">--:--</span>
+        <div class="weather-side">
+          <div class="weather-info">
+            <div class="weather-info__sub-container">
+              <p class="humidity fa fa-tint"></p>
+            </div>
+            <div class="weather-info__sub-container">
+              <p class="precipitation fa fa-umbrella"></p>
+            </div>
+            <div class="weather-info__sub-container">
+              <p class="wind fa fa-wind"></p>
+            </div>
+            <div class="weather-info__sub-container">
+              <p class="pressure fa fa-angle-double-down"></p>
+            </div>
           </div>
-          <div class="sunset">
-            <img src="./img/weather-icons/sunset-icon.png" alt="" class="sunset-img">
-            <span class="sunset-time">--:--</span>
+          <div class="sunrise-sunset-box">
+            <div class="sunrise">
+              <img
+                src="./img/weather-icons/sunrise-icon.png"
+                alt=""
+                class="sunrise-img"
+              />
+              <span class="sunrise-time">--:--</span>
+            </div>
+            <div class="sunset">
+              <img
+                src="./img/weather-icons/sunset-icon.png"
+                alt=""
+                class="sunset-img"
+              />
+              <span class="sunset-time">--:--</span>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="weather-week-box ">
-        <div class="week-day__1">
-
+        <div class="weather-week">
+          <div class="week-day day__1"></div>
+          <div class="week-day day__2"></div>
+          <div class="week-day day__3"></div>
+          <div class="week-day day__4"></div>
+          <div class="week-day day__5"></div>
+          <div class="week-day day__6"></div>
         </div>
-      </div>
-      </div>
-      
-        
       </div>
     </section>
     <script

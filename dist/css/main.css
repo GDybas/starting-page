@@ -88,6 +88,7 @@ img {
   height: 100%;
   width: 100%; }
   .main-section .settings-box {
+    display: none;
     position: absolute;
     top: 15px;
     right: 15px; }
@@ -114,7 +115,7 @@ img {
       grid-template-columns: 1fr 2fr;
       justify-content: space-evenly;
       align-content: center;
-      padding: 2rem; }
+      padding: 2rem 4rem 2rem 2rem; }
       .main-section .container__weather .alert-box {
         display: none;
         background: red;
@@ -131,13 +132,15 @@ img {
         top: 10px;
         left: 10px;
         font-size: 2rem;
-        transition: 0.2s;
+        transition: 0.1s;
         padding: 0.7rem 1rem;
         border-radius: 10px; }
         .main-section .container__weather .change-view-icon:hover {
           color: #97ff97;
           cursor: pointer;
           background: rgba(0, 0, 0, 0.5); }
+        .main-section .container__weather .change-view-icon:active {
+          color: red; }
       .main-section .container__weather .weather-box {
         text-align: center;
         margin-right: 1rem;
@@ -165,7 +168,7 @@ img {
         justify-content: space-evenly; }
         .main-section .container__weather .weather-side .weather-info {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
           border-radius: 10px;
           border: 1px solid #d4d4d4;
           padding: 1rem 1rem;
@@ -197,8 +200,30 @@ img {
             width: 70px;
             text-align: center;
             font-size: 1.3rem; }
-      .main-section .container__weather .weather-week-box {
-        display: none; }
+      .main-section .container__weather .weather-week {
+        display: none;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column: 1/ span 4;
+        font-size: 1rem;
+        padding-left: 2rem; }
+        .main-section .container__weather .weather-week .week-day {
+          border: 1px solid #fff;
+          border-radius: 10px;
+          margin: 0.5rem 1rem;
+          text-align: center;
+          padding: 1rem 0.5rem; }
+          .main-section .container__weather .weather-week .week-day .day-name {
+            text-align: left;
+            display: inline-block;
+            width: 40%;
+            margin: 0 auto; }
+          .main-section .container__weather .weather-week .week-day .day-temp {
+            width: 40%;
+            display: inline-block;
+            margin: 0 auto; }
+          .main-section .container__weather .weather-week .week-day .icon {
+            width: 60px;
+            margin: 0 auto; }
     .main-section .container__date-time-msg {
       position: relative;
       display: flex;
@@ -207,7 +232,7 @@ img {
       align-items: flex-start;
       padding: 3rem; }
       .main-section .container__date-time-msg .time-date {
-        line-height: 1; }
+        line-height: 1.2; }
         .main-section .container__date-time-msg .time-date .clock {
           font-size: 4rem;
           font-weight: bold; }
