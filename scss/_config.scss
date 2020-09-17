@@ -6,9 +6,10 @@ $stormy: url('../img/background-images/stormy.jpg');
 $cloudy: url('../img/background-images/cloudy.jpg');
 $mist: url('../img/background-images/mist.jpg');
 
-$bg: no-repeat center right / cover;
+$mobile-bg:linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 45%, rgba(253, 187, 45, 1) 55%, rgba(34, 193, 195, 1) 100%) no-repeat center right / cover;
 
 $container-color: radial-gradient(circle, rgba(0, 108, 216, 0.553) 0%, rgba(0, 97, 194, 0.6504) 76%);
+
 
 
 $font: 'Roboto',

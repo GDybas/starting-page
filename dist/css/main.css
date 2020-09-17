@@ -14,7 +14,8 @@
 
 @media screen and (max-width: 650px) {
   .bg-image-container {
-    height: 300vh; }
+    height: 300vh;
+    background: linear-gradient(0deg, #22c1c3 0%, #fdbb2d 45%, #fdbb2d 55%, #22c1c3 100%) no-repeat center right/cover; }
   .main-section {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -91,6 +92,7 @@ img {
   filter: blur(4px);
   -webkit-filter: blur(4px);
   height: 100vh;
+  z-index: -1;
   display: block; }
 
 .btn {
