@@ -30,11 +30,11 @@ img {
 }
 
 .bg-image-container {
-  // background: $rainy; //zmiana tła zależnie od pogody
   background-image: url('../img/background-images/sunny.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   filter: blur(4px);
   -webkit-filter: blur(4px);
   height: 100vh;
@@ -154,6 +154,7 @@ img {
       position: relative;
       display: grid;
       grid-template-columns: 1fr 2fr;
+
 
       // grid-gap: 1rem;
       // grid-template-areas:
@@ -296,7 +297,7 @@ img {
         .week-day {
           border: 1px solid #fff;
           border-radius: 10px;
-          margin: 0.5rem 1rem;
+          margin: 0.5rem 0.5rem;
           text-align: center;
           padding: 1rem 0.5rem;
 
@@ -311,6 +312,7 @@ img {
             width: 40%;
             display: inline-block;
             margin: 0 auto;
+            text-align: right;
           }
 
           .icon {

@@ -1,0 +1,61 @@
+@media screen and (max-width: 1400px) {
+  .temp-info {
+    font-size: 2rem; } }
+
+@media screen and (max-width: 1200px) {
+  .main-section {
+    grid-template-columns: repeat(1, 1fr);
+    height: auto;
+    grid-gap: 2rem; }
+    .main-section .container__todo {
+      grid-row: 3/span 4; }
+  .bg-image-container {
+    height: 200vh; } }
+
+@media screen and (max-width: 650px) {
+  .bg-image-container {
+    height: 300vh; }
+  .main-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0; }
+    .main-section .container {
+      margin: 2rem 2rem 1rem 2rem; }
+      .main-section .container__weather {
+        grid-template-columns: 1fr;
+        padding: 2rem; }
+        .main-section .container__weather .weather-box {
+          margin: 0 0 1rem 0; }
+        .main-section .container__weather .weather-week {
+          grid-template-columns: repeat(2, 1fr);
+          margin: 2rem 0 0 0;
+          padding: 0; }
+      .main-section .container__date-time-msg {
+        justify-content: space-evenly;
+        padding: 1rem; }
+        .main-section .container__date-time-msg .time-date {
+          margin: 1rem auto; }
+          .main-section .container__date-time-msg .time-date .clock {
+            font-size: 3rem;
+            margin: 0 auto; }
+          .main-section .container__date-time-msg .time-date .date {
+            font-size: 1.5rem; }
+      .main-section .container__todo .todo-input {
+        width: 100%; }
+      .main-section .container__todo .task-title {
+        text-align: center; }
+  .tasks-list__item {
+    width: 100%; }
+  .btn {
+    margin: 1rem auto;
+    display: block; } }
+
+@media screen and (max-width: 400px) {
+  .bg-image-container {
+    height: 350vh; }
+  .main-section .container__weather .weather-week {
+    grid-template-columns: repeat(1, 1fr); } }
+
+@media screen and (max-width: 400px) {
+  .bg-image-container {
+    height: 450vh; } }
